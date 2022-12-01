@@ -19,6 +19,7 @@
 // THE SOFTWARE.
 
 /* eslint-disable react/no-direct-mutation-state */
+import {GL, withParameters, setParameters} from '@luma.gl/webgl-legacy';
 import {COORDINATE_SYSTEM} from './constants';
 import AttributeManager from './attribute/attribute-manager';
 import UniformTransitionManager from './uniform-transition-manager';
@@ -27,8 +28,6 @@ import {LIFECYCLE, Lifecycle} from '../lifecycle/constants';
 import {count} from '../utils/count';
 import log from '../utils/log';
 import debug from '../debug';
-import GL from '@luma.gl/constants';
-import {withParameters, setParameters} from '@luma.gl/core';
 import assert from '../utils/assert';
 import memoize from '../utils/memoize';
 import {mergeShaders} from '../utils/shader';
@@ -45,7 +44,7 @@ import {load} from '@loaders.gl/core';
 import type {Loader} from '@loaders.gl/loader-utils';
 import type {CoordinateSystem} from './constants';
 import type Attribute from './attribute/attribute';
-import type {Model} from '@luma.gl/engine';
+import type {Model} from '@luma.gl/webgl-legacy';
 import type {PickingInfo, GetPickingInfoParams} from './picking/pick-info';
 import type Viewport from '../viewports/viewport';
 import type {NumericArray} from '../types/types';
@@ -404,7 +403,7 @@ export default abstract class Layer<PropsT extends {} = {}> extends Component<
   getNumInstances(): number {
     // First Check if app has provided an explicit value
     if (Number.isFinite(this.props.numInstances)) {
-      return this.props.numInstances as number;
+      return this.props.numInstances;
     }
 
     // Second check if the layer has set its own value
@@ -457,7 +456,11 @@ export default abstract class Layer<PropsT extends {} = {}> extends Component<
   }
 
   /** Default implementation, all attributes will be invalidated and updated when data changes */
+<<<<<<< HEAD
   // eslint-disable-next-line complexity
+=======
+  /* eslint-disable-next-line complexity */
+>>>>>>> ca3441829 (feat: luma v9)
   updateState(params: UpdateParameters<Layer<PropsT>>): void {
     const attributeManager = this.getAttributeManager();
     const {dataChanged} = params.changeFlags;
@@ -503,7 +506,7 @@ export default abstract class Layer<PropsT extends {} = {}> extends Component<
   /** Called once when layer is no longer matched and state will be discarded. Layers can destroy WebGL resources here. */
   finalizeState(context: LayerContext): void {
     for (const model of this.getModels()) {
-      model.delete();
+      model.destroy();
     }
     const attributeManager = this.getAttributeManager();
     if (attributeManager) {
@@ -921,7 +924,7 @@ export default abstract class Layer<PropsT extends {} = {}> extends Component<
 
     const currentProps = this.props;
     const context = this.context;
-    const internalState = this.internalState as LayerState<this>;
+    const internalState = this.internalState;
 
     const currentViewport = context.viewport;
     const propsInTransition = this._updateUniformTransition();
@@ -938,7 +941,7 @@ export default abstract class Layer<PropsT extends {} = {}> extends Component<
       const oldModels = this.getModels();
 
       // Safely call subclass lifecycle methods
-      if (context.gl) {
+      if (context.device) {
         this.updateState(updateParams);
       } else {
         try {
@@ -1013,7 +1016,7 @@ export default abstract class Layer<PropsT extends {} = {}> extends Component<
       const {getPolygonOffset} = this.props;
       const offsets = (getPolygonOffset && getPolygonOffset(uniforms)) || [0, 0];
 
-      setParameters(context.gl, {polygonOffset: offsets});
+      setParameters(context.device, {polygonOffset: offsets});
 
       // Call subclass lifecycle method
       withParameters(context.gl, parameters, () => {
@@ -1169,7 +1172,7 @@ export default abstract class Layer<PropsT extends {} = {}> extends Component<
   /** Create new attribute manager */
   protected _getAttributeManager(): AttributeManager | null {
     const context = this.context;
-    return new AttributeManager(context.gl, {
+    return new AttributeManager(context.device, {
       id: this.props.id,
       stats: context.stats,
       timeline: context.timeline
@@ -1210,7 +1213,7 @@ export default abstract class Layer<PropsT extends {} = {}> extends Component<
       // Do not reset unless the value has changed.
       if (forceUpdate || highlightedObjectIndex !== oldProps.highlightedObjectIndex) {
         parameters.pickingSelectedColor =
-          Number.isFinite(highlightedObjectIndex) && (highlightedObjectIndex as number) >= 0
+          Number.isFinite(highlightedObjectIndex) && highlightedObjectIndex >= 0
             ? this.encodePickingColor(highlightedObjectIndex)
             : null;
       }

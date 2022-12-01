@@ -1,5 +1,21 @@
 # Upgrade Guide
 
+## Upgrading to v9.0
+
+### Custom Layers
+
+Create models with device instead of gl.
+
+```typescript
+// luma.gl vp
+new Model(this.context.device, {opts});
+// luma.gl v8
+new Model(this.context.gl, {opts});
+```
+
+
+- drawModes `GL.TRIANGLE_FAN` and `GL.LINE_LOOP` are not supported on WebGPU. Select different topology when creating geometries.
+
 ## Upgrading from deck.gl v8.8 to v8.9
 
 #### Breaking changes
@@ -810,6 +826,8 @@ The `assembleShaders` function was moved to luma.gl in v4.1 and is no longer re-
 
 
 ## Upgrading from deck.gl v4 to v4.1
+
+deck.gl v4.1 bumps luma.gl to from v3 to v4. This is major release that brings full WebGL2 enablement to deck.gl. This should not affect you if you are mainly using the provided deck.gl layers but if you are writing your own layers using luma.gl classes you may want to look at the upgrade guide of luma.gl.
 
 deck.gl v4.1 is a backward-compatible release. Most of the functionality and APIs remain unchanged but there are smaller changes that might requires developers' attention if they **develop custom layers**. Note that applications that are only using the provided layers should not need to make any changes issues.
 

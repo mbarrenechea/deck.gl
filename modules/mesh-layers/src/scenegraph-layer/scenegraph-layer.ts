@@ -18,8 +18,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+import type {Device} from '@luma.gl/api';
 import {Layer, project32, picking, log} from '@deck.gl/core';
-import {isWebGL2} from '@luma.gl/core';
+import {isWebGL2} from '@luma.gl/webgl-legacy';
 import {pbr} from '@luma.gl/shadertools';
 import {
   ScenegraphNode,
@@ -28,7 +29,7 @@ import {
   GLTFEnvironment,
   createGLTFObjects
 } from '@luma.gl/experimental';
-import GL from '@luma.gl/constants';
+import {GL} from '@luma.gl/webgl-legacy';
 import {GLTFLoader} from '@loaders.gl/gltf';
 import {waitForGLTFAssets} from './gltf-utils';
 
@@ -64,14 +65,14 @@ type _ScenegraphLayerProps<DataT> = {
    */
   getScene?: (
     scenegraph: any,
-    context: {gl: WebGLRenderingContext; layer: ScenegraphLayer<DataT>}
+    context: {device?: Device; layer: ScenegraphLayer<DataT>}
   ) => GroupNode;
   /**
    * Create a luma.gl GLTFAnimator from the resolved scenegraph prop
    */
   getAnimator?: (
     scenegraph: any,
-    context: {gl: WebGLRenderingContext; layer: ScenegraphLayer<DataT>}
+    context: {device?: Device; layer: ScenegraphLayer<DataT>}
   ) => GLTFAnimator;
   /**
    * (Experimental) animation configurations. Requires `_animate` on deck object.
@@ -204,7 +205,7 @@ export default class ScenegraphLayer<DataT = any, ExtraPropsT extends {} = {}> e
   initializeState() {
     const attributeManager = this.getAttributeManager();
     // attributeManager is always defined for primitive layers
-    attributeManager!.addInstanced({
+    attributeManager.addInstanced({
       instancePositions: {
         size: 3,
         type: GL.DOUBLE,
@@ -242,7 +243,7 @@ export default class ScenegraphLayer<DataT = any, ExtraPropsT extends {} = {}> e
 
   private _updateScenegraph(): void {
     const props = this.props;
-    const {gl} = this.context;
+    const {device} = this.context;
     let scenegraphData: any = null;
     if (props.scenegraph instanceof ScenegraphNode) {
       // Signature 1: props.scenegraph is a proper luma.gl Scenegraph
@@ -250,7 +251,7 @@ export default class ScenegraphLayer<DataT = any, ExtraPropsT extends {} = {}> e
     } else if (props.scenegraph && !props.scenegraph.gltf) {
       // Converts loaders.gl gltf to luma.gl scenegraph using the undocumented @luma.gl/experimental function
       const gltf = props.scenegraph;
-      const gltfObjects = createGLTFObjects(gl, gltf, this._getModelOptions());
+      const gltfObjects = createGLTFObjects(device, gltf, this._getModelOptions());
       scenegraphData = {gltf, ...gltfObjects};
 
       waitForGLTFAssets(gltfObjects).then(() => this.setNeedsRedraw()); // eslint-disable-line @typescript-eslint/no-floating-promises
@@ -263,7 +264,7 @@ export default class ScenegraphLayer<DataT = any, ExtraPropsT extends {} = {}> e
       scenegraphData = props.scenegraph;
     }
 
-    const options = {layer: this, gl};
+    const options = {layer: this, device: this.context.device};
     const scenegraph = props.getScene(scenegraphData, options);
     const animator = props.getAnimator(scenegraphData, options);
 

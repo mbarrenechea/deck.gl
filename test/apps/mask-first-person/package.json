@@ -5,8 +5,16 @@
   },
   "dependencies": {
     "deck.gl": "^8.4.0",
+<<<<<<< HEAD
     "@math.gl/core": "3.6.0",
     "@turf/circle": "6.5.0"
+=======
+    "@math.gl/core": "4.0.0-alpha.1",
+    "@turf/circle": "6.5.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "react-map-gl": "^4.1.2"
+>>>>>>> ca3441829 (feat: luma v9)
   },
   "devDependencies": {
     "vite": "^4.0.0"

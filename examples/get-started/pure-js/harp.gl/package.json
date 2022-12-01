@@ -4,8 +4,14 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+<<<<<<< HEAD
     "start": "webpack-dev-server --progress --hot --open",
     "build": "webpack -p"
+=======
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+>>>>>>> ca3441829 (feat: luma v9)
   },
   "dependencies": {
     "@deck.gl/core": "^8.8.0",
@@ -18,8 +24,7 @@
     "three": "^0.114.0"
   },
   "devDependencies": {
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.1"
+    "typescript": "^4.3.2",
+    "vite": "^3.2.4"
   }
 }

@@ -1,7 +1,7 @@
 import test from 'tape-promise/tape';
 import ComponentState from '@deck.gl/core/lifecycle/component-state';
 import Component from '@deck.gl/core/lifecycle/component';
-import {gl} from '@deck.gl/test-utils';
+import {device} from '@deck.gl/test-utils';
 
 const EMPTY_ARRAY = Object.freeze([]);
 
@@ -170,7 +170,7 @@ test('ComponentState#asynchronous async props', async t => {
 });
 
 test('ComponentState#async props with transform', t => {
-  const testContext = {gl};
+  const testContext = {device};
 
   const testData = [0, 1, 2, 3, 4];
   // prettier-ignore
@@ -232,7 +232,7 @@ test('ComponentState#async props with transform', t => {
     },
     (propName, value) => {
       if (propName === 'image') {
-        t.notOk(image.handle, 'Last texture is deleted');
+        t.ok(image.destroyed, 'Last texture is deleted');
         image = component.props.image;
         t.ok(image, 'Async value for image should be transformed');
       }
@@ -243,7 +243,7 @@ test('ComponentState#async props with transform', t => {
 
       if (!state.isAsyncPropLoading()) {
         state.finalize();
-        t.notOk(image.handle, 'Texture is deleted on finalization');
+        t.ok(image.destroyed, 'Texture is deleted on finalization');
 
         t.end();
       }

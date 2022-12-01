@@ -1,8 +1,12 @@
 import test from 'tape';
 import IconManager, {buildMapping, getDiffIcons} from '@deck.gl/layers/icon-layer/icon-manager';
+<<<<<<< HEAD
 import {gl} from '@deck.gl/test-utils';
 import {isBrowser} from '@probe.gl/env';
 import {loadImage} from 'canvas';
+=======
+import {device} from '@deck.gl/test-utils';
+>>>>>>> ca3441829 (feat: luma v9)
 
 const DATA = [
   {
@@ -231,7 +235,7 @@ test('IconManager#events', t => {
     iconManager.finalize(); // eslint-disable-line
     t.end();
   };
-  const iconManager = new IconManager(gl, {onError});
+  const iconManager = new IconManager(device, {onError});
 
   iconManager.setProps({
     autoPacking: true,

@@ -1,5 +1,5 @@
-import {Texture2D} from '@luma.gl/core';
-import GL from '@luma.gl/constants';
+import {Device} from '@luma.gl/api';
+import {GL, Texture2D} from '@luma.gl/webgl-legacy';
 
 const DEFAULT_TEXTURE_PARAMETERS: Record<number, number> = {
   [GL.TEXTURE_MIN_FILTER]: GL.LINEAR_MIPMAP_LINEAR,
@@ -13,7 +13,7 @@ const internalTextures: Record<string, string> = {};
 
 export function createTexture(
   owner: string,
-  gl: WebGLRenderingContext,
+  device: Device,
   image: any,
   parameters: Record<number, number>
 ): Texture2D | null {
@@ -35,7 +35,7 @@ export function createTexture(
     };
   }
 
-  const texture = new Texture2D(gl, {
+  const texture = new Texture2D(device, {
     ...image,
     parameters: {
       ...DEFAULT_TEXTURE_PARAMETERS,
