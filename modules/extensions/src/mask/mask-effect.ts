@@ -1,11 +1,4 @@
-import {
-  Layer,
-  Viewport,
-  Effect,
-  PreRenderOptions,
-  CoordinateSystem,
-  log
-} from '@deck.gl/core';
+import {Layer, Viewport, Effect, PreRenderOptions, CoordinateSystem, log} from '@deck.gl/core';
 import type {Device} from '@luma.gl/api';
 import {Texture2D} from '@luma.gl/webgl-legacy';
 // import {readPixelsToArray} from '@luma.gl/webgl-legacy';

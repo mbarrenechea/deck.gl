@@ -29,6 +29,7 @@ export default class DeckRenderer {
 
   constructor(device: Device) {
     this.device = device;
+    // @ts-expect-error
     this.gl = device.gl;
     this.layerFilter = null;
     this.drawPickingColors = false;

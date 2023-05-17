@@ -275,9 +275,9 @@ export default class CPUAggregator {
       key,
       accessor,
       pickingInfo,
-      getBins: {updater: this.getDimensionSortedBins, ...getBins},
-      getDomain: {updater: this.getDimensionValueDomain, ...getDomain},
-      getScaleFunc: {updater: this.getDimensionScale, ...getScaleFunc},
+      getBins: {updater: this.getDimensionSortedBins.bind(this), ...getBins},
+      getDomain: {updater: this.getDimensionValueDomain.bind(this), ...getDomain},
+      getScaleFunc: {updater: this.getDimensionScale.bind(this), ...getScaleFunc},
       attributeAccessor: this.getSubLayerDimensionAttribute(key, nullValue)
     };
   }

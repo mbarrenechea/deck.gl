@@ -1,5 +1,5 @@
 import {Framebuffer, Texture2D, isWebGL2} from '@luma.gl/core';
-import GL from '@luma.gl/constants';
+import {GL} from '@luma.gl/webgl-legacy';
 
 export function createRenderTarget(
   gl: WebGLRenderingContext,

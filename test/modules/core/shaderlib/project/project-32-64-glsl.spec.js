@@ -19,11 +19,8 @@
 // THE SOFTWARE.
 
 import test from 'tape-promise/tape';
-<<<<<<< HEAD
 import GL from '@luma.gl/constants';
-=======
 import assert from 'assert';
->>>>>>> ca3441829 (feat: luma v9)
 
 // import {COORDINATE_SYSTEM, Viewport, WebMercatorViewport} from 'deck.gl';
 import {COORDINATE_SYSTEM, WebMercatorViewport} from 'deck.gl';
@@ -129,12 +126,7 @@ const TEST_CASES = [
       },
       {
         name: 'project_position_to_clipspace',
-<<<<<<< HEAD
         skipGPUs: ['Intel', 'Apple'],
-=======
-        // TODO luma.gl v9 - adding apple as an exception !?!
-        skipGPUs: ['intel', 'apple'],
->>>>>>> ca3441829 (feat: luma v9)
         func: ({project_position_to_clipspace_vec3_vec3_vec3}) =>
           project_position_to_clipspace_vec3_vec3_vec3([-122.45, 37.78, 0], [0, 0, 0], [0, 0, 0]),
         mapResult: coords => clipspaceToScreen(TEST_VIEWPORT, coords),
@@ -148,12 +140,7 @@ const TEST_CASES = [
       },
       {
         name: 'project_position_to_clipspace (non-zero Z)',
-<<<<<<< HEAD
         skipGPUs: ['Intel', 'Apple'],
-=======
-        // TODO luma.gl v9 - adding apple as an exception !?!
-        skipGPUs: ['intel', 'apple'],
->>>>>>> ca3441829 (feat: luma v9)
         func: ({project_position_to_clipspace_vec3_vec3_vec3}) =>
           project_position_to_clipspace_vec3_vec3_vec3([-122.45, 37.78, 100], [0, 0, 0], [0, 0, 0]),
         mapResult: coords => clipspaceToScreen(TEST_VIEWPORT, coords),
@@ -177,12 +164,7 @@ const TEST_CASES = [
       {
         name: 'project_position_to_clipspace_world_position',
         // disableTranspileFor64: true,
-<<<<<<< HEAD
         skipGPUs: ['Intel', 'Apple'],
-=======
-        // TODO luma.gl v9 - adding apple as an exception !?!
-        skipGPUs: ['intel', 'apple'],
->>>>>>> ca3441829 (feat: luma v9)
 
         func: ({project_position_to_clipspace}) => {
           let worldPosition = [];
@@ -203,12 +185,7 @@ const TEST_CASES = [
       },
       {
         name: 'project_position_to_clipspace',
-<<<<<<< HEAD
         skipGPUs: ['Intel', 'Apple'],
-=======
-        // TODO luma.gl v9 - adding apple as an exception !?!
-        skipGPUs: ['intel', 'apple'],
->>>>>>> ca3441829 (feat: luma v9)
 
         func: ({project_position_to_clipspace_vec3_vec3_vec3}) =>
           project_position_to_clipspace_vec3_vec3_vec3([-122.05, 37.92, 0], [0, 0, 0], [0, 0, 0]),

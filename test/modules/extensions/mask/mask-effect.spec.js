@@ -39,12 +39,8 @@ test('MaskEffect#cleanup', t => {
   layerManager.setLayers([TEST_MASK_LAYER, TEST_LAYER]);
   layerManager.updateLayers();
 
-<<<<<<< HEAD
   maskEffect.preRender(gl, {
     pass: 'screen',
-=======
-  maskEffect.preRender(device, {
->>>>>>> ca3441829 (feat: luma v9)
     layers: layerManager.getLayers(),
     onViewportActive: layerManager.activateViewport,
     viewports: [testViewport]
@@ -83,12 +79,8 @@ test('MaskEffect#update', t => {
     layerManager.setLayers(layers);
     layerManager.updateLayers();
 
-<<<<<<< HEAD
     maskEffect.preRender(gl, {
       pass: 'screen',
-=======
-    maskEffect.preRender(device, {
->>>>>>> ca3441829 (feat: luma v9)
       layers: layerManager.getLayers(),
       onViewportActive: layerManager.activateViewport,
       viewports: [testViewport]
@@ -155,12 +147,8 @@ test('MaskEffect#coordinates', t => {
     layerManager.setLayers(layers);
     layerManager.updateLayers();
 
-<<<<<<< HEAD
     maskEffect.preRender(gl, {
       pass: 'screen',
-=======
-    maskEffect.preRender(device, {
->>>>>>> ca3441829 (feat: luma v9)
       layers: layerManager.getLayers(),
       onViewportActive: layerManager.activateViewport,
       viewports: [testViewport]

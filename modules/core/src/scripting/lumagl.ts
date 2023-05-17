@@ -5,7 +5,6 @@
 export {
   // Core classes
   Timeline,
-
   // Geometries
   Geometry,
   ConeGeometry,

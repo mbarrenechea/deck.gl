@@ -1,5 +1,5 @@
 import {GL} from '@luma.gl/webgl-legacy';
-import {_flatten as flatten, log} from '@deck.gl/core';
+import {log} from '@deck.gl/core';
 import {
   AGGREGATION,
   getLayer,

@@ -1,18 +1,7 @@
 import test from 'tape-promise/tape';
-<<<<<<< HEAD:test/modules/geo-layers/tileset-2d/tileset-2d.spec.js
 import {_Tileset2D as Tileset2D} from '@deck.gl/geo-layers';
-import {Matrix4} from 'math.gl';
-=======
-import Tileset2D, {
-  STRATEGY_REPLACE,
-  STRATEGY_DEFAULT,
-  STRATEGY_NEVER
-} from '@deck.gl/geo-layers/tile-layer/tileset-2d';
 import {WebMercatorViewport, OrthographicView} from '@deck.gl/core';
 import {Matrix4} from '@math.gl/core';
->>>>>>> ca3441829 (feat: luma v9):test/modules/geo-layers/tile-layer/tileset-2d.spec.js
-
-import {WebMercatorViewport, OrthographicView} from '@deck.gl/core';
 
 const testViewState = {
   bearing: 0,
