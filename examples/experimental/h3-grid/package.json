@@ -4,15 +4,9 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-<<<<<<< HEAD
     "start": "vite --open",
     "start-local": "vite --config ../../vite.config.local.mjs",
     "build": "vite build"
-=======
-    "start": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview"
->>>>>>> ca3441829 (feat: luma v9)
   },
   "dependencies": {
     "deck.gl": "^8.8.0",
@@ -22,12 +16,7 @@
     "react-map-gl": "^7.0.0"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "typescript": "^4.6.0",
     "vite": "^4.0.0"
-=======
-    "typescript": "^4.3.2",
-    "vite": "^3.2.4"
->>>>>>> ca3441829 (feat: luma v9)
   }
 }

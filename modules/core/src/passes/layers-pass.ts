@@ -73,11 +73,7 @@ export default class LayersPass extends Pass {
     options.pass = options.pass || 'unknown';
 
     if (clearCanvas) {
-<<<<<<< HEAD
-      clearGLCanvas(gl, target);
-=======
       clearGLCanvas(this.device);
->>>>>>> ca3441829 (feat: luma v9)
     }
 
     if (clearStack) {
@@ -415,15 +411,9 @@ function getGLViewport(
   ];
 }
 
-<<<<<<< HEAD
-function clearGLCanvas(gl: WebGLRenderingContext, targetFramebuffer?: Framebuffer) {
-  const width = targetFramebuffer ? targetFramebuffer.width : gl.drawingBufferWidth;
-  const height = targetFramebuffer ? targetFramebuffer.height : gl.drawingBufferHeight;
-=======
 function clearGLCanvas(device: Device) {
   const [width, height] = device.canvasContext.getDrawingBufferSize();
 
->>>>>>> ca3441829 (feat: luma v9)
   // clear depth and color buffers, restoring transparency
   setParameters(device, {viewport: [0, 0, width, height]});
   clear(device, {color: true, depth: true});

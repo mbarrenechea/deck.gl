@@ -144,7 +144,7 @@ export default class CollisionFilterEffect implements Effect {
       const collisionFBO = this.collisionFBOs[collisionGroup];
 
       // Rerender collision FBO
-      this.collisionFilterPass!.renderCollisionMap(collisionFBO, {
+      this.collisionFilterPass.renderCollisionMap(collisionFBO, {
         pass: 'collision-filter',
         isPicking: true,
         layers: renderInfo.layers,

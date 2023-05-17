@@ -456,11 +456,7 @@ export default abstract class Layer<PropsT extends {} = {}> extends Component<
   }
 
   /** Default implementation, all attributes will be invalidated and updated when data changes */
-<<<<<<< HEAD
   // eslint-disable-next-line complexity
-=======
-  /* eslint-disable-next-line complexity */
->>>>>>> ca3441829 (feat: luma v9)
   updateState(params: UpdateParameters<Layer<PropsT>>): void {
     const attributeManager = this.getAttributeManager();
     const {dataChanged} = params.changeFlags;
@@ -478,7 +474,7 @@ export default abstract class Layer<PropsT extends {} = {}> extends Component<
     // Enable/disable picking buffer
     if (attributeManager) {
       const {props} = params;
-      const hasPickingBuffer = this.internalState!.hasPickingBuffer;
+      const hasPickingBuffer = this.internalState.hasPickingBuffer;
       const needsPickingBuffer =
         Number.isInteger(props.highlightedObjectIndex) ||
         props.pickable ||
@@ -486,7 +482,7 @@ export default abstract class Layer<PropsT extends {} = {}> extends Component<
 
       // Only generate picking buffer if needed
       if (hasPickingBuffer !== needsPickingBuffer) {
-        this.internalState!.hasPickingBuffer = needsPickingBuffer;
+        this.internalState.hasPickingBuffer = needsPickingBuffer;
         const {pickingColors, instancePickingColors} = attributeManager.attributes;
         const pickingColorsAttribute = pickingColors || instancePickingColors;
         if (pickingColorsAttribute) {

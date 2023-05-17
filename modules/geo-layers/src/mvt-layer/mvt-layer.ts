@@ -288,7 +288,7 @@ export default class MVTLayer<ExtraProps extends {} = {}> extends TileLayer<
     const isWGS84 = Boolean(this.context.viewport.resolution);
 
     if (this.state.binary && info.index !== -1) {
-      const {data} = params.sourceLayer!.props;
+      const {data} = params.sourceLayer.props;
       info.object = binaryToGeojson(data as BinaryFeatures, {
         globalFeatureId: info.index
       }) as Feature;

@@ -48,7 +48,7 @@ export class TerrainPass extends LayersPass {
           ...opts,
           target,
           pass: 'terrain-height-map',
-          layers: opts.layers!,
+          layers: opts.layers,
           viewports: [viewport],
           effects: []
         })
@@ -64,7 +64,7 @@ export class TerrainPass extends LayersPass {
       return;
     }
 
-    const layers = terrainCover.filterLayers(opts.layers!);
+    const layers = terrainCover.filterLayers(opts.layers);
     target.resize(viewport);
 
     withParameters(

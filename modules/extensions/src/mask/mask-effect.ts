@@ -166,7 +166,7 @@ export default class MaskEffect implements Effect {
         const maskViewport =
           layerBounds &&
           makeViewport({
-            bounds: channelInfo.bounds!,
+            bounds: channelInfo.bounds,
             viewport,
             width: maskMap.width,
             height: maskMap.height,

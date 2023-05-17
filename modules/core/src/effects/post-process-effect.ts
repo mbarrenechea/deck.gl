@@ -30,7 +30,7 @@ export default class PostProcessEffect implements Effect {
   postRender(device: Device, params: PostRenderOptions): Framebuffer {
     const passes = this.passes || createPasses(device, this.module, this.id);
     // TODO from v9 merge - remove
-    //const passes = this.passes || createPasses(device, this.module, this.id, this.props);
+    // const passes = this.passes || createPasses(device, this.module, this.id, this.props);
     this.passes = passes;
 
     const {target} = params;
@@ -59,16 +59,8 @@ export default class PostProcessEffect implements Effect {
   }
 }
 
-<<<<<<< HEAD
-function createPasses(gl: WebGLRenderingContext, module: ShaderModule, id: string): ScreenPass[] {
-=======
-function createPasses(
-  device: Device,
-  module: ShaderModule,
-  id: string,
-  moduleSettings: any
-): ScreenPass[] {
->>>>>>> ca3441829 (feat: luma v9)
+// function createPasses(gl: WebGLRenderingContext, module: ShaderModule, id: string): ScreenPass[] {
+function createPasses(device: Device, module: ShaderModule, id: string): ScreenPass[] {
   if (!module.passes) {
     const fs = getFragmentShaderForRenderPass(module);
     const pass = new ScreenPass(device, {

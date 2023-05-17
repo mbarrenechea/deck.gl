@@ -1019,12 +1019,7 @@ export default class Deck {
       onViewportActive: this.layerManager?.activateViewport,
       views: this.viewManager?.getViews(),
       pass: 'screen',
-<<<<<<< HEAD
-      effects: this.effectManager!.getEffects(),
-=======
-      redrawReason,
-      effects: this.effectManager?.getEffects(),
->>>>>>> ca3441829 (feat: luma v9)
+      effects: this.effectManager.getEffects(),
       ...renderOptions
     });
 
