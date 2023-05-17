@@ -4,7 +4,7 @@ const PORT = 3000;
 const INPUT_DIR = 'src';
 const IMAGE_DIR = 'images';
 
-/* eslint-disable-next-line */
+/* eslint-disable */
 const MAPBOX_TOKEN = process.env.MapboxAccessToken;
 if (!MAPBOX_TOKEN) {
   console.log('Missing environment variable: MapboxAccessToken');

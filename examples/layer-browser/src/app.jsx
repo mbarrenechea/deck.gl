@@ -1,6 +1,4 @@
 /* global window */
-import React, {PureComponent} from 'react';
-import autobind from 'react-autobind';
 
 // deck.gl ES6 components
 import {
@@ -14,7 +12,9 @@ import {
   PostProcessEffect
 } from '@deck.gl/core';
 import {SolidPolygonLayer} from '@deck.gl/layers';
-import {ink} from '@luma.gl/shadertools';
+
+import React, {PureComponent} from 'react';
+import autobind from 'react-autobind';
 
 import {Matrix4} from '@math.gl/core';
 
@@ -24,6 +24,7 @@ import LayerControls from './components/layer-controls';
 import LAYER_CATEGORIES from './examples';
 import Map from './map';
 
+import {ink} from '@luma.gl/shadertools';
 
 const AMBIENT_LIGHT = new AmbientLight({
   color: [255, 255, 255],
@@ -159,7 +160,7 @@ export default class App extends PureComponent {
     return new Layer(layerProps);
   }
 
-  /* eslint-disable-next-line max-depth */
+  /* eslint-disable max-depth */
   _renderExamples() {
     let index = 1;
     const layers = [
@@ -315,9 +316,3 @@ export default class App extends PureComponent {
     );
   }
 }
-
-// export function renderToDOM(container) {
-//   render(<App />, container);
-// }
-
-// renderToDOM(document.getElementById('app'));
