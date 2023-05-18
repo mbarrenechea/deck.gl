@@ -19,9 +19,8 @@
 // THE SOFTWARE.
 
 import {Layer, project32, gouraudLighting, picking, COORDINATE_SYSTEM} from '@deck.gl/core';
-import {GL} from '@luma.gl/webgl-legacy';
 import {Geometry} from '@luma.gl/engine';
-import {Model, hasFeatures, FEATURES} from '@luma.gl/webgl-legacy';
+import {GL, Model, hasFeatures, FEATURES} from '@luma.gl/webgl-legacy';
 
 // Polygon geometry generation is managed by the polygon tesselator
 import PolygonTesselator from './polygon-tesselator';

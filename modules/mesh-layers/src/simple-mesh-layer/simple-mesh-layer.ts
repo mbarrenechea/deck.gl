@@ -256,6 +256,8 @@ export default class SimpleMeshLayer<DataT = any, ExtraPropsT extends {} = {}> e
       // Otherwise, calculate bounding box from positions
       const {attributes} = getGeometry(mesh as Mesh, this.props._useMeshColors);
       attributes.POSITION = attributes.POSITION || attributes.positions;
+
+      //@ts-expect-error
       result = getMeshBoundingBox(attributes);
     }
 

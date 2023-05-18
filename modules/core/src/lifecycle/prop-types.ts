@@ -202,7 +202,7 @@ const TYPE_DEFINITIONS = {
       if (!context || !context.gl) {
         return null;
       }
-      return createTexture(component.id, context.gl, value, {
+      return createTexture(component.id, context.device, value, {
         ...propType.parameters,
         ...component.props.textureParameters
       });

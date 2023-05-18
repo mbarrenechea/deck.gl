@@ -766,6 +766,8 @@ export default class Deck {
     const {
       // width,
       // height,
+      device,
+      gl,
       deviceProps,
       glOptions,
       debug,
@@ -779,7 +781,7 @@ export default class Deck {
       // width,
       // height,
       useDevicePixels,
-      autoResizeDrawingBuffer: !gl, // do not auto resize external context
+      autoResizeDrawingBuffer: !device && !gl, // do not auto resize external context
       autoResizeViewport: false,
       device: this.device,
       onCreateDevice: props =>

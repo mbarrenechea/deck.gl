@@ -498,7 +498,7 @@ export default class DeckPicker {
 
     for (const effect of effects) {
       if (effect.useInPicking) {
-        opts.preRenderStats[effect.id] = effect.preRender(this.gl, opts);
+        opts.preRenderStats[effect.id] = effect.preRender(this.device, opts);
       }
     }
 

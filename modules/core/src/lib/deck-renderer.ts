@@ -33,8 +33,8 @@ export default class DeckRenderer {
     this.gl = device.gl;
     this.layerFilter = null;
     this.drawPickingColors = false;
-    this.drawLayersPass = new DrawLayersPass(gl);
-    this.pickLayersPass = new PickLayersPass(gl);
+    this.drawLayersPass = new DrawLayersPass(device);
+    this.pickLayersPass = new PickLayersPass(device);
     this.renderCount = 0;
     this._needsRedraw = 'Initial render';
     this.renderBuffers = [];
@@ -111,7 +111,7 @@ export default class DeckRenderer {
     opts.preRenderStats = opts.preRenderStats || {};
 
     for (const effect of effects) {
-      opts.preRenderStats[effect.id] = effect.preRender(this.gl, opts);
+      opts.preRenderStats[effect.id] = effect.preRender(this.device, opts);
       if (effect.postRender) {
         this.lastPostProcessEffect = effect.id;
       }
@@ -144,10 +144,10 @@ export default class DeckRenderer {
       if (effect.postRender) {
         if (effect.id === this.lastPostProcessEffect) {
           params.target = opts.target;
-          effect.postRender(this.gl, params);
+          effect.postRender(this.device, params);
           break;
         }
-        const buffer = effect.postRender(this.gl, params);
+        const buffer = effect.postRender(this.device, params);
         params.inputBuffer = buffer;
         params.swapBuffer = buffer === renderBuffers[0] ? renderBuffers[1] : renderBuffers[0];
       }
