@@ -11,16 +11,24 @@ const DEFAULT_TEXTURE_PARAMETERS: Record<number, number> = {
 // Track the textures that are created by us. They need to be released when they are no longer used.
 const internalTextures: Record<string, string> = {};
 
+/**
+ * 
+ * @param owner 
+ * @param device 
+ * @param image could be one of:
+ *   - Texture2D
+ *   - Browser object: Image, ImageData, ImageData, HTMLCanvasElement, HTMLVideoElement, ImageBitmap
+ *   - Plain object: {width: <number>, height: <number>, data: <Uint8Array>}
+ * @param parameters 
+ * @returns 
+ */
 export function createTexture(
   owner: string,
   device: Device,
   image: any,
   parameters: Record<number, number>
 ): Texture2D | null {
-  // image could be one of:
-  //  - Texture2D
-  //  - Browser object: Image, ImageData, ImageData, HTMLCanvasElement, HTMLVideoElement, ImageBitmap
-  //  - Plain object: {width: <number>, height: <number>, data: <Uint8Array>}
+  debugger
   if (image instanceof Texture2D) {
     return image;
   } else if (image.constructor && image.constructor.name !== 'Object') {

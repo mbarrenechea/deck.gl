@@ -20,6 +20,7 @@
     "escaper": "v2 has an invalid main field in package.json, breaks esbuild during browser test"
   },
   "resolutions": {
+    "@probe.gl/env": "^4.0.3",
     "escaper": "3.0.6"
   },
   "scripts": {
@@ -56,16 +57,16 @@
     "@babel/register": "^7.13.0",
     "@luma.gl/test-utils": "9.0.0-alpha.15",
     "@luma.gl/webgpu": "9.0.0-alpha.15",
-    "@math.gl/proj4": "4.0.0-alpha.1",
-    "@probe.gl/bench": "4.0.0-alpha.1",
-    "@probe.gl/test-utils": "4.0.0-alpha.1",
+    "@math.gl/proj4": "4.0.0-alpha.4",
+    "@probe.gl/bench": "^4.0.3",
+    "@probe.gl/test-utils": "^4.0.3",
     "@types/react": "^18.0.0",
     "abortcontroller-polyfill": "^1.5.0",
     "babel-loader": "^8.0.0",
     "babel-plugin-inline-webgl-constants": "^1.0.3",
     "babel-plugin-remove-glsl-comments": "^0.1.0",
     "babel-preset-minify": "^0.5.0",
-    "canvas": "^2.11.0",
+    "canvas": "^2.11.2",
     "gl": "6.0.2",
     "glsl-transpiler": "^1.8.6",
     "jsdom": "^20.0.0",

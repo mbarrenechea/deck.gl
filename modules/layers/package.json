@@ -36,9 +36,9 @@
     "@luma.gl/shadertools": "9.0.0-alpha.15",
     "@luma.gl/webgl-legacy": "9.0.0-alpha.15",
     "@mapbox/tiny-sdf": "^2.0.5",
-    "@math.gl/core": "4.0.0-alpha.1",
-    "@math.gl/polygon": "4.0.0-alpha.1",
-    "@math.gl/web-mercator": "4.0.0-alpha.1",
+    "@math.gl/core": "4.0.0-alpha.4",
+    "@math.gl/polygon": "4.0.0-alpha.4",
+    "@math.gl/web-mercator": "4.0.0-alpha.4",
     "earcut": "^2.2.4"
   },
   "peerDependencies": {

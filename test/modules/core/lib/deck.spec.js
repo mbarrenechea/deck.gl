@@ -5,6 +5,7 @@ import {device} from '@deck.gl/test-utils';
 import {sleep} from './async-iterator-test-utils';
 
 test('Deck#constructor', t => {
+  debugger
   const callbacks = {
     onWebGLInitialized: 0,
     onBeforeRender: 0,
