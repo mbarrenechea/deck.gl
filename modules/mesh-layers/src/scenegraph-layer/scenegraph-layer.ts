@@ -25,6 +25,7 @@ import {pbr} from '@luma.gl/shadertools';
 import {
   ScenegraphNode,
   GroupNode,
+  ModelNode,
   GLTFAnimator,
   GLTFEnvironment,
   createGLTFObjects
@@ -282,7 +283,7 @@ export default class ScenegraphLayer<DataT = any, ExtraPropsT extends {} = {}> e
     if (this.state.attributesAvailable) {
       // attributeManager is always defined for primitive layers
       const allAttributes = this.getAttributeManager()!.getAttributes();
-      scenegraph.traverse(model => {
+      scenegraph.traverse((model: ModelNode) => {
         this._setModelAttributes(model.model, allAttributes);
       });
     }
@@ -368,7 +369,7 @@ export default class ScenegraphLayer<DataT = any, ExtraPropsT extends {} = {}> e
     this.setState({attributesAvailable: true});
     if (!this.state.scenegraph) return;
 
-    this.state.scenegraph.traverse(model => {
+    this.state.scenegraph.traverse((model: ModelNode) => {
       this._setModelAttributes(model.model, changedAttributes);
     });
   }
@@ -384,7 +385,7 @@ export default class ScenegraphLayer<DataT = any, ExtraPropsT extends {} = {}> e
     const {viewport} = this.context;
     const {sizeScale, sizeMinPixels, sizeMaxPixels, opacity, coordinateSystem} = this.props;
     const numInstances = this.getNumInstances();
-    this.state.scenegraph.traverse((model, {worldMatrix}) => {
+    this.state.scenegraph.traverse((model: ModelNode, {worldMatrix}) => {
       model.model.setInstanceCount(numInstances);
       model.updateModuleSettings(moduleParameters);
       model.draw({

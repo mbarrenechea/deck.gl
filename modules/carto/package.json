@@ -36,7 +36,7 @@
     "@loaders.gl/loader-utils": "^3.3.5",
     "@loaders.gl/mvt": "^3.3.5",
     "@loaders.gl/tiles": "^3.3.5",
-    "@luma.gl/webgl-legacy": "9.0.0-alpha.15",
+    "@luma.gl/webgl-legacy": "9.0.0-alpha.21",
     "@math.gl/web-mercator": "4.0.0-alpha.4",
     "cartocolor": "^4.0.2",
     "d3-array": "^3.2.0",

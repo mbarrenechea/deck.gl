@@ -39,7 +39,7 @@
     "@loaders.gl/3d-tiles": "^3.3.5",
     "@loaders.gl/core": "^3.3.5",
     "@loaders.gl/csv": "^3.3.5",
-    "@luma.gl/webgl-legacy": "9.0.0-alpha.15",
+    "@luma.gl/webgl-legacy": "9.0.0-alpha.21",
     "mapbox-gl": "^1.13.2"
   },
   "jupyterlab": {

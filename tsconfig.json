@@ -2,8 +2,7 @@
   "ts-node": {
     "include": [
       "modules",
-      "test/modules",
-      "node_modules/@luma.gl"
+      "test/modules"
     ],
     // It is faster to skip typechecking. Remove if you want ts-node to do typechecking.
     "transpileOnly": true
