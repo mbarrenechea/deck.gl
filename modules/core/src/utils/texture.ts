@@ -12,15 +12,15 @@ const DEFAULT_TEXTURE_PARAMETERS: Record<number, number> = {
 const internalTextures: Record<string, string> = {};
 
 /**
- * 
- * @param owner 
- * @param device 
+ *
+ * @param owner
+ * @param device
  * @param image could be one of:
  *   - Texture2D
  *   - Browser object: Image, ImageData, ImageData, HTMLCanvasElement, HTMLVideoElement, ImageBitmap
  *   - Plain object: {width: <number>, height: <number>, data: <Uint8Array>}
- * @param parameters 
- * @returns 
+ * @param parameters
+ * @returns
  */
 export function createTexture(
   owner: string,
