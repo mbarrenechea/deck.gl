@@ -28,7 +28,6 @@ export function createTexture(
   image: any,
   parameters: Record<number, number>
 ): Texture2D | null {
-  debugger
   if (image instanceof Texture2D) {
     return image;
   } else if (image.constructor && image.constructor.name !== 'Object') {

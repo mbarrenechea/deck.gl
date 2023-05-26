@@ -199,7 +199,7 @@ const TYPE_DEFINITIONS = {
   image: {
     transform: (value, propType: ImagePropType, component) => {
       const context = (component as Layer).context;
-      if (!context || !context.gl) {
+      if (!context || !context.device) {
         return null;
       }
       return createTexture(component.id, context.device, value, {

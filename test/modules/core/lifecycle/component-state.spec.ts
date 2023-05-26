@@ -193,7 +193,7 @@ test('ComponentState#asynchronous async props', async t => {
 });
 
 // TODO - disabled for v9
-test.only('ComponentState#async props with transform', t => {
+test('ComponentState#async props with transform', t => {
   const testContext = {device};
 
   const testData = [0, 1, 2, 3, 4];
@@ -215,17 +215,12 @@ test.only('ComponentState#async props with transform', t => {
     // @ts-expect-error
     comp.context = testContext;
 
-    // @ts-expect-error
     state.component = comp;
-    // @ts-expect-error
     state.setAsyncProps(comp.props);
-    // @ts-expect-error
     state.onAsyncPropUpdated = onAsyncPropUpdated;
 
     return comp;
   };
-
-  debugger
 
   // Synchronous value for async prop
   let component = makeComponent({

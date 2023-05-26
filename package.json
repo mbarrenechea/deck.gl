@@ -17,13 +17,15 @@
     "modules/*"
   ],
   "resolution_comments": {
-    "escaper": "v2 has an invalid main field in package.json, breaks esbuild during browser test"
+    "escaper": "v2 has an invalid main field in package.json, breaks esbuild during browser test",
+    "vite": "process polyfill missing"
   },
   "resolutions": {
     "@probe.gl/log": "4.0.4",
     "@probe.gl/stats": "4.0.4",
     "@probe.gl/env": "4.0.4",
-    "escaper": "3.0.6"
+    "escaper": "3.0.6",
+    "vite": "^4.3.9"
   },
   "scripts": {
     "bootstrap": "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn && ocular-bootstrap",
